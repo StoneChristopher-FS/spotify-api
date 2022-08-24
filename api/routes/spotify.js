@@ -7,8 +7,12 @@ const Token = require('../models/token');
 
 require('dotenv').config();
 
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET= process.env.CLIENT_SECRET;
+const REDIRECT_URI= process.env.REDIRECT_URI;
+
 const updateToken = async (data) => {
-    const updateToken = await Token.findOneAndUpdate({}, data)
+    return await Token.findOneAndUpdate({}, data)
 }
 
 router.get('/login', async (req, res) => {
@@ -18,21 +22,21 @@ router.get('/login', async (req, res) => {
     res.redirect('https://accounts.spotify.com/authorize?' + 
     qs.stringify({
         response_type: 'code',
-        client_id: process.env.CLIENT_ID,
+        client_id: CLIENT_ID,
         scope: scope,
-        redirect_uri: process.env.REDIRECT_URI,
+        redirect_uri: REDIRECT_URI,
         state: state
     }));
 });
 
 router.post('/auth', async (req, res) => {
+    let token = await Token.findOne()
     const code = req.body.code;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: process.env.REDIRECT_URI,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET
+        redirectUri: REDIRECT_URI,
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET
     });
-    let token = await Token.findOne()
 
     spotifyApi
         .authorizationCodeGrant(code)
