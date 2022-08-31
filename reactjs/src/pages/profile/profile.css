@@ -1,0 +1,32 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100vh;
+    width: 25%;
+    color: white;
+    text-decoration: none;
+}
+
+.profile-pic {
+    height: 300px;
+    border-radius: 50px;
+}
+
+.profile h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.profile h3 {
+    margin-top: 10px;
+    color: rgb(69,174,81);
+}
+

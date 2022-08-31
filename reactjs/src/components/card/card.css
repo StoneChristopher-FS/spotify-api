@@ -1,0 +1,34 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 250px;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid rgb(69,174,81);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(69,174,81,.5);
+}
+
+.card img {
+    height: 150px
+}
+
+.card h3 {
+    margin-top: 10px;
+    color: rgb(69,174,81);
+    font-size: 1.25rem;
+}
+
+.card-text {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card p {
+    color: white;
+    font-size: 1rem;
+}

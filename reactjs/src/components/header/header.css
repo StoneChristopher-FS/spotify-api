@@ -1,0 +1,25 @@
+.header{
+    width: 100%;
+}
+
+.test {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    padding-left: 20px;
+}
+
+.profile-icon {
+    height: 40px;
+    padding-right: 20px;
+}

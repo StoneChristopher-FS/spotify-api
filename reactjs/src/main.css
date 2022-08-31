@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.primary {
+    background-color: rgb(69,174,81);
+}
+
+.secondary {
+    background-color: rgb(23,20,20);
+}
+
+.app-header {
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    overflow: hidden;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+.small-logo {
+    height: 80px;
+}

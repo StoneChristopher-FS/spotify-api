@@ -1,18 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './pages/login';
-import Dashboard from './pages/dashboard';
+
+import { useEffect, useState } from 'react';
+import { accessToken } from './token';
+
+import Login from './pages/login/login';
+import Dashboard from './pages/dashboard/dashboard';
+import './main.css';
 
 function App() {
-  const code = new URLSearchParams(window.location.search).get('code')
+  const [token, setToken] = useState(null);
+  useEffect(() => {
+    setToken(accessToken);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {
-          code ? <Dashboard code={code} /> 
-          : <Login />
-        }
-      </header>
+    <div className="secondary app-header">
+      <section className=''>
+        {!token ? (<Login />) : (<Dashboard />)}
+      </section>
     </div>
   );
 }
