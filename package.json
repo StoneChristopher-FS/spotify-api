@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "cd api && npm run dev",
+    "client": "cd reactjs && npm run start",
+    "postinstall": "(cd api && npm install); (cd reactjs && npm install)"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
