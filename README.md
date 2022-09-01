@@ -7,37 +7,35 @@
 
 # Project Overview
 
-Using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/), this application will allow the search of any artist or song on the Spotify database and return the results to the user. It will also have full login authentication with JWT tokens.
+Using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/), this show a random set of new release albums and categories along with displaying a users profile. It will also have full login authentication with JWT tokens.
 
-Additional project information and capabilities will be added to this README on a regular basis.
+I plan to add to this in the future and the README will be updated with more functionality as it develops.
 
 # Prerequisites
 
 - NodeJS >= 16.15.1
 - Express >= 4.18.1
 - npm >= 8.12.1
-- Xcode >= 13.4.1
+- MongoDB >= 1.32.6
+- Chrome/Firefox/Safari/Edge >= Latest 2 major versions
 
 # Getting Started
 
 - Install dependencies
-	- cd api
-	- npm install
+	- npm install (will install all modules in all sub directories)
 
-- Start API server
-	- cd api
-	- npm run start
-
-Additional steps TBD...
-
-## Other Considerations
-
-Ports `3000`, and `3001` must be open on host OS. Make sure no other applications are running on those ports by running the following command: 
-
-	sudo lsof -nP -i4TCP:3000 | grep LISTEN && sudo lsof -nP -i4TCP:3001 | grep LISTEN
-
-If any results shows are displayed then you must close the application running on either of those ports. 
+- Start Application
+	- npm start
 
 # Links
 
-- TBD
+Important links to project
+
+- [http://localhost:3000](http://localhost:3000) - Home page for client side app
+- [http://localhost:3001/spotify/v1/login](http://localhost:3001/spotify/v1/login) - API call to Spotify Login
+- [http://localhost:3001/spotify/v1/status](http://localhost:3001/spotify/v1/status) - Will return true/false based on token expired stats
+- [http://localhost:3001/spotify/v1/me](http://localhost:3001/spotify/v1/me) - API call to user profile info
+- [http://localhost:3001/spotify/v1/browse/new-releases](http://localhost:3001/spotify/v1/browse/new-releases) - API call to new-release albums
+- [http://localhost:3001/spotify/v1/browse/categories](http://localhost:3001/spotify/v1/browse/categories) - API call to categories
+
+

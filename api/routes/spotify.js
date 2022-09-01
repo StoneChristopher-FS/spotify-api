@@ -11,7 +11,7 @@ require('dotenv').config();
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-const now = new Date().getTime();
+const now = Math.floor(Date.now() / 1000);
 
 const updateToken = async (data) => {
     return await Token.findOneAndUpdate({}, data)
@@ -19,7 +19,7 @@ const updateToken = async (data) => {
 
 const status = async (req, res, next) => {
     const token = await Token.findOne({});
-    const valid = (token != null && token.expires_in > now)
+    const valid = (token != {} && token.expires_in > now)
     if (valid) {
         req.token = token;
     } else {
@@ -125,6 +125,12 @@ app.get('/auth', async (req, res) => {
     })
 });
 
+app.get('/status', status, async (req, res) => {
+    const token = await Token.findOne({});
+    const valid = (req.token != {} && token.expires_in > now)
+    
+    res.send(valid)
+})
 
 app.get('/me', status, async (req, res) => {
     const { access_token, token_type } = req.token;
